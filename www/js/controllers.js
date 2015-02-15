@@ -1,3 +1,14 @@
+var orderStatus = [];
+
+var orders = [
+  {id: 1, customer: {firstName: 'Daniel', lastName: 'Ossorio'}, amount: 120},
+  {id: 2, customer: {firstName: 'Alberto', lastName: 'García'}, amount: 12},
+  {id: 3, customer: {firstName: 'Manuel', lastName: 'Pérez'}, amount: 20},
+  {id: 4, customer: {firstName: 'Pedro', lastName: 'Picapiedra'}, amount: 43},
+  {id: 5, customer: {firstName: 'Miguel', lastName: 'Gallardón'}, amount: 56},
+  {id: 6, customer: {firstName: 'Virginia', lastName: 'Alonso'}, amount: 23}
+];
+
 angular.module('starter.controllers', [])
 
   .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -34,15 +45,15 @@ angular.module('starter.controllers', [])
   })
 
   .controller('OrdersCtrl', function($scope) {
-    $scope.orders = [
-      {id: 1, customer: {firstName: 'Daniel', lastName: 'Ossorio'}, amount: 120},
-      {id: 2, customer: {firstName: 'Alberto', lastName: 'García'}, amount: 12},
-      {id: 3, customer: {firstName: 'Manuel', lastName: 'Pérez'}, amount: 20},
-      {id: 4, customer: {firstName: 'Pedro', lastName: 'Picapiedra'}, amount: 43},
-      {id: 5, customer: {firstName: 'Miguel', lastName: 'Gallardón'}, amount: 56},
-      {id: 6, customer: {firstName: 'Virginia', lastName: 'Alonso'}, amount: 23}
-    ];
+    $scope.orders = orders;
   })
 
-  .controller('PlaylistCtrl', function($scope, $stateParams) {
+  .controller('OrderCtrl', function($scope, $stateParams) {
+    for (var key in orders) {
+      var order = orders[key];
+      if (order.id == $stateParams.orderId) {
+        $scope.order = order;
+        break;
+      }
+    }
   });

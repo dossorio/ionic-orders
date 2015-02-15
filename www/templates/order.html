@@ -1,0 +1,6 @@
+<ion-view view-title="{{ 'order' | translate | capitalize }} #{{ order.id }}">
+  <ion-content>
+    <p>{{ order.customer.firstName }} {{ order.customer.lastName }}</p>
+    <p>{{ order.amount }}{{ 'currency-symbol' | translate }}</p>
+  </ion-content>
+</ion-view>

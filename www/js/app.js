@@ -30,20 +30,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
         controller: 'AppCtrl'
       })
 
-      .state('app.search', {
-        url: "/search",
+      .state('app.customers', {
+        url: "/customers",
         views: {
           'menuContent': {
-            templateUrl: "templates/search.html"
+            templateUrl: "templates/customers.html"
           }
         }
       })
 
-      .state('app.browse', {
-        url: "/browse",
+      .state('app.products', {
+        url: "/products",
         views: {
           'menuContent': {
-            templateUrl: "templates/browse.html"
+            templateUrl: "templates/products.html"
           }
         }
       })
@@ -57,12 +57,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
         }
       })
 
-      .state('app.single', {
-        url: "/playlists/:playlistId",
+      .state('app.order', {
+        url: "/orders/:orderId",
         views: {
           'menuContent': {
-            templateUrl: "templates/playlist.html",
-            controller: 'PlaylistCtrl'
+            templateUrl: "templates/order.html",
+            controller: 'OrderCtrl'
           }
         }
       });
