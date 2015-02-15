@@ -1,7 +1,7 @@
 <ion-view view-title="{{ 'products' | translate | capitalize }}">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="product in products" href="#/app/product/{{product.id}}">
+      <ion-item ng-repeat="product in products" href="#/app/products/{{product.id}}">
         #{{product.id}} - {{ product.name }}, {{ product.price }}{{ 'currency-symbol' | translate }}
       </ion-item>
     </ion-list>

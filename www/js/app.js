@@ -59,6 +59,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
         }
       })
 
+      .state('app.product', {
+        url: '/products/:productId',
+        views: {
+          'menuContent': {
+            templateUrl: "templates/product.html",
+            controller: 'ProductCtrl'
+          }
+        }
+      })
+
       .state('app.orders', {
         url: "/orders",
         views: {

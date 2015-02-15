@@ -61,9 +61,12 @@ angular.module('starter.controllers', [])
 
   .controller('CustomerCtrl', function($scope, $stateParams) {
     $scope.customer = getElemFromArray(customers, $stateParams.customerId);
-
   })
 
   .controller('ProductsCtrl', function($scope) {
     $scope.products = products;
+  })
+
+  .controller('ProductCtrl', function($scope, $stateParams) {
+    $scope.product = getElemFromArray(products, $stateParams.productId);
   });
