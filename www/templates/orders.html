@@ -1,0 +1,9 @@
+<ion-view view-title="{{ 'orders' | translate | capitalize }}">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="order in orders" href="#/app/orders/{{order.id}}">
+        #{{order.id}} - {{ order.customer.firstName }} {{ order.customer.lastName }}, {{ order.amount }} {{ 'currency-symbol' | translate }}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

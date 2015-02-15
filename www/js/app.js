@@ -47,12 +47,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
           }
         }
       })
-      .state('app.playlists', {
-        url: "/playlists",
+      .state('app.orders', {
+        url: "/orders",
         views: {
           'menuContent': {
-            templateUrl: "templates/playlists.html",
-            controller: 'PlaylistsCtrl'
+            templateUrl: "templates/orders.html",
+            controller: 'OrdersCtrl'
           }
         }
       })
@@ -67,7 +67,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
         }
       });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/playlists');
+    $urlRouterProvider.otherwise('/app/orders');
 
     /*!
      * Translations
@@ -78,13 +78,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
       'menu-title': 'Menu',
       'customers': 'customers',
       'products': 'products',
-      'orders': 'orders'
+      'orders': 'orders',
+      'order': 'order',
+      'currency-symbol': '$'
     });
     $translateProvider.translations('es', {
       'menu-title': 'Menú',
       'customers': 'clientes',
       'products': 'productos',
-      'orders': 'pedidos'
+      'orders': 'pedidos',
+      'order': 'pedido',
+      'currency-symbol': '€'
     });
   })
 
