@@ -3,7 +3,8 @@
     <ion-list>
       <ion-item ng-repeat="order in orders" href="#/app/orders/{{order.id}}">
         #{{order.id}} - {{ order.customer.firstName }} {{ order.customer.lastName }},
-        {{ order.amount }}{{ 'currency-symbol' | translate }}
+        {{ order.amount }}{{ 'currency-symbol' | translate }},
+        {{ 'status' | translate | capitalize }}: {{ order.status | translate | capitalize }}
       </ion-item>
     </ion-list>
   </ion-content>

@@ -1,5 +1,9 @@
 <ion-view view-title="{{ 'customers' | translate | capitalize }}">
   <ion-content>
-    <h1>{{ 'customers' | translate | capitalize }}</h1>
+    <ion-list>
+      <ion-item ng-repeat="customer in customers" href="#/app/customers/{{customer.id}}">
+        #{{customer.id}} - {{ customer.firstName }} {{ customer.lastName }}
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
