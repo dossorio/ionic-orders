@@ -80,7 +80,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
       'products': 'products',
       'orders': 'orders',
       'order': 'order',
-      'currency-symbol': '$'
+      'currency-symbol': '$',
+      'status': 'status',
+      'new': 'new',
+      'paid': 'paid',
+      'delivered': 'delivered'
     });
     $translateProvider.translations('es', {
       'menu-title': 'Menú',
@@ -88,7 +92,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
       'products': 'productos',
       'orders': 'pedidos',
       'order': 'pedido',
-      'currency-symbol': '€'
+      'currency-symbol': '€',
+      'status': 'estado',
+      'new': 'nuevo',
+      'paid': 'pagado',
+      'delivered': 'entregado'
     });
   })
 

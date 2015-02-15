@@ -1,12 +1,12 @@
-var orderStatus = [];
+var orderStatus = ['new', 'paid', 'delivered'];
 
 var orders = [
-  {id: 1, customer: {firstName: 'Daniel', lastName: 'Ossorio'}, amount: 120},
-  {id: 2, customer: {firstName: 'Alberto', lastName: 'García'}, amount: 12},
-  {id: 3, customer: {firstName: 'Manuel', lastName: 'Pérez'}, amount: 20},
-  {id: 4, customer: {firstName: 'Pedro', lastName: 'Picapiedra'}, amount: 43},
-  {id: 5, customer: {firstName: 'Miguel', lastName: 'Gallardón'}, amount: 56},
-  {id: 6, customer: {firstName: 'Virginia', lastName: 'Alonso'}, amount: 23}
+  {id: 1, customer: {firstName: 'Daniel', lastName: 'Ossorio'}, amount: 120, status: orderStatus[0]},
+  {id: 2, customer: {firstName: 'Alberto', lastName: 'García'}, amount: 12, status: orderStatus[1]},
+  {id: 3, customer: {firstName: 'Manuel', lastName: 'Pérez'}, amount: 20, status: orderStatus[1]},
+  {id: 4, customer: {firstName: 'Pedro', lastName: 'Picapiedra'}, amount: 43, status: orderStatus[2]},
+  {id: 5, customer: {firstName: 'Miguel', lastName: 'Gallardón'}, amount: 56, status: orderStatus[2]},
+  {id: 6, customer: {firstName: 'Virginia', lastName: 'Alonso'}, amount: 23, status: orderStatus[0]}
 ];
 
 angular.module('starter.controllers', [])
