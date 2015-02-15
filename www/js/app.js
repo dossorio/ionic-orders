@@ -99,7 +99,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
     $translateProvider.translations('en', {
       'menu-title': 'Menu',
       'customers': 'customers',
+      'customer': 'customer',
       'products': 'products',
+      'product': 'product',
       'orders': 'orders',
       'order': 'order',
       'currency-symbol': '$',
@@ -111,7 +113,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
     $translateProvider.translations('es', {
       'menu-title': 'Menú',
       'customers': 'clientes',
+      'customer': 'cliente',
       'products': 'productos',
+      'product': 'producto',
       'orders': 'pedidos',
       'order': 'pedido',
       'currency-symbol': '€',
