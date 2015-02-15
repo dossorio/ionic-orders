@@ -1,6 +1,20 @@
+
+
 <ion-view view-title="{{ 'product' | translate | capitalize }} #{{ product.id }}">
   <ion-content>
-    <p>{{ product.name }}, {{ product.price }}{{ 'currency-symbol' | translate }}</p>
-    <img src="img/{{ product.img }}">
+
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.price }}{{ 'currency-symbol' | translate }}</p>
+      </div>
+
+      <div class="item item-image">
+        <img src="img/{{ product.img }}">
+      </div>
+
+    </div>
+
   </ion-content>
 </ion-view>
