@@ -3,11 +3,11 @@ var orderStatus = ['new', 'paid', 'delivered'];
 var categories = ['Coleteros', 'Llaveros', 'Marcos de fotos'];
 
 var products = [
-  {id: 1, name: 'Coletero corazon', price: 10, category: categories[0]},
-  {id: 2, name: 'Marco tortuga ninja', price: 20, category: categories[2]},
-  {id: 3, name: 'Llavero minion 1', price: 5, category: categories[1]},
-  {id: 4, name: 'Llavero minion 2', price: 6, category: categories[1]},
-  {id: 5, name: 'Coletero minion', price: 9, category: categories[0]}
+  {id: 1, name: 'Coletero corazon', price: 10, category: categories[0], img: 'coletero-corazon.jpg'},
+  {id: 2, name: 'Marco tortuga ninja', price: 20, category: categories[2], img: 'marco-tortuga-ninja.jpg'},
+  {id: 3, name: 'Llavero minion 1', price: 5, category: categories[1], img: 'llavero-minion.jpg'},
+  {id: 4, name: 'Coletero Seta', price: 6, category: categories[1], img: 'coletero-seta.jpg'},
+  {id: 5, name: 'Coletero minion', price: 9, category: categories[0], img: 'coletero-minion.jpg'}
 ];
 
 var customers = [
