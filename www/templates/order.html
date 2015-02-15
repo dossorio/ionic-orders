@@ -3,5 +3,11 @@
     <p>{{ order.customer.firstName }} {{ order.customer.lastName }}</p>
     <p>{{ order.amount }}{{ 'currency-symbol' | translate }}</p>
     <p>{{ 'status' | translate | capitalize }}: {{ order.status | translate | capitalize }}</p>
+    <h2>{{ 'products' | translate | capitalize }}</h2>
+    <ion-list>
+      <ion-item ng-repeat="product in order.products" href="#/app/products/{{product.id}}">
+        <p>{{ product.name }}, {{ product.price }}{{ 'currency-symbol' | translate }}</p>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
