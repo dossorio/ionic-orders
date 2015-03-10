@@ -1,0 +1,30 @@
+<ion-view view-title="{{ 'new' | translate | capitalize }} {{ 'customer' | translate | capitalize }}">
+  <ion-content>
+    <div class="list">
+      <form>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">First Name</span>
+          <input type="text" placeholder="First Name" ng-model="customer.firstName">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Last Name</span>
+          <input type="text" placeholder="Last Name" ng-model="customer.lastName">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Email</span>
+          <input type="text" placeholder="Email" ng-model="customer.email">
+        </label>
+      </form>
+    </div>
+  </ion-content>
+  <div class="bar bar-footer bar-light">
+    <div class="tabs tabs-icon-only">
+      <a ng-click="newCustomer(customer)" class="tab-item">
+        <i class="icon ion-checkmark-circled"></i>
+      </a>
+      <a class="tab-item" href="#/app/customer/new">
+        <i class="icon ion-close-circled"></i>
+      </a>
+    </div>
+  </div>
+</ion-view>

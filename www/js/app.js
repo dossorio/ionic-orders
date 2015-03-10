@@ -1,22 +1,36 @@
 // Ionic Starter App
 
+var db = null;
+
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.translate'])
+angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.translate', 'ngCordova'])
 
-  .run(function($ionicPlatform) {
+  .run(function($ionicPlatform, $cordovaSQLite) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
-      if (window.cordova && window.cordova.plugins.Keyboard) {
-        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      if (window.cordova) {
+
+        db = $cordovaSQLite.openDB('orders.db');
+        $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS Customer (' +
+        'id integer PRIMARY KEY,' +
+        'name text,' +
+        'address text,' +
+        'phone text,' +
+        'email text' +
+        ')');
+
+        if (window.cordova.plugins.Keyboard) cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       }
+      
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
+
     });
   })
 
@@ -45,6 +59,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
           menuContent: {
             templateUrl: 'templates/customer.html',
             controller: 'CustomerCtrl'
+          }
+        }
+      })
+
+      .state('app.customer-new', {
+        url: "/customer/new",
+        views: {
+          'menuContent': {
+            templateUrl: "templates/customer-new.html",
+            controller: 'CustomerNewCtrl'
           }
         }
       })
@@ -108,7 +132,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
       'status': 'status',
       'new': 'new',
       'paid': 'paid',
-      'delivered': 'delivered'
+      'delivered': 'delivered',
+      'first-name': 'first name'
     });
     $translateProvider.translations('es', {
       'menu-title': 'Menú',

@@ -28,6 +28,7 @@ var orders = [
   {id: 6, customer: customers[2], amount: 0, status: orderStatus[0], products: [products[4], products[3]]}
 ];
 
+// populate products inside orders
 (function() {
   for (var key1 in orders) {
     var order = orders[key1];
@@ -38,6 +39,13 @@ var orders = [
   }
 }());
 
+/**
+ * Gets an element from dummy data arrays
+ *
+ * @param array
+ * @param id
+ * @returns {*}
+ */
 function getElemFromArray(array, id) {
   for (var key in array) {
     var elem = array[key];
@@ -69,4 +77,13 @@ angular.module('starter.controllers', [])
 
   .controller('ProductCtrl', function($scope, $stateParams) {
     $scope.product = getElemFromArray(products, $stateParams.productId);
+  })
+
+  .controller('CustomerNewCtrl', function($scope) {
+
+    $scope.customer = {};
+
+    $scope.newCustomer = function(customer) {
+      customers.push(customer);
+    }
   });
