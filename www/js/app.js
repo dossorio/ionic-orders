@@ -6,9 +6,10 @@ var db = null;
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.translate', 'ngCordova'])
+angular.module('starter', ['ionic', 'starter.controllers',
+  'pascalprecht.translate', 'ngCordova', 'starter.services'])
 
-  .run(function($ionicPlatform, $cordovaSQLite) {
+  .run(function($ionicPlatform, $cordovaSQLite, DB) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -20,19 +21,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'pascalprecht.transla
         StatusBar.styleDefault();
       }
 
-      if(window.cordova){
+      if (window.cordova) {
         db = $cordovaSQLite.openDB('orders.db');
-      }else{
+      } else {
         db = window.openDatabase('orders.db', '1.0', 'orders', -1);
       }
-      
-      $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS Customer (' +
-        'id integer PRIMARY KEY,' +
-        'name text,' +
-        'address text,' +
-        'phone text,' +
-        'email text' +
-      ')');
+
+      DB.init();
+
     });
   })
 

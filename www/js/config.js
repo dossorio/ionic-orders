@@ -1,6 +1,7 @@
 angular.module('starter.config', [])
   .constant('DB_CONFIG', {
     name: 'orders.db',
+    description: 'Orders App Database',
     tables: [{
       name: 'customer',
       columns: [
