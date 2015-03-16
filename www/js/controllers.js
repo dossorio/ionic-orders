@@ -28,7 +28,7 @@ var orders = [
   {id: 6, customer: customers[2], amount: 0, status: orderStatus[0], products: [products[4], products[3]]}
 ];
 
-// populate products inside orders
+// populate products inside orders (temporal workaround)
 (function() {
   for (var key1 in orders) {
     var order = orders[key1];
@@ -38,6 +38,8 @@ var orders = [
     }
   }
 }());
+
+window.localStorage['orders'] = JSON.stringify(orders);
 
 /**
  * Gets an element from dummy data arrays
