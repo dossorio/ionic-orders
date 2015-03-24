@@ -66,10 +66,9 @@ angular.module('starter.controllers', [])
   })
 
   .controller('CustomersCtrl', function($scope, Customer) {
-    Customer.create();
-    var customers = Customer.getAll();
-    console.log(customers);
-    $scope.customers = customers;
+    Customer.getAll().then(function(customers) {
+      $scope.customers = customers;
+    });
   })
 
   .controller('CustomerCtrl', function($scope, $stateParams) {
