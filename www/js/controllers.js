@@ -65,7 +65,10 @@ angular.module('starter.controllers', [])
     $scope.order = getElemFromArray(orders, $stateParams.orderId);
   })
 
-  .controller('CustomersCtrl', function($scope) {
+  .controller('CustomersCtrl', function($scope, Customer) {
+    Customer.create();
+    var customers = Customer.getAll();
+    console.log(customers);
     $scope.customers = customers;
   })
 

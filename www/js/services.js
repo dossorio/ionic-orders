@@ -5,15 +5,15 @@ angular.module('starter.services', ['starter.config'])
 
     self.init = function() {
 
-      if(window.cordova){
-        db = $cordovaSQLite.openDB(DB_CONFIG.name);
-      }else{
-        db = window.openDatabase(DB_CONFIG.name, '1.0', DB_CONFIG.description, -1);
+      if (window.cordova) {
+        self.db = $cordovaSQLite.openDB(DB_CONFIG.name);
+      } else {
+        self.db = window.openDatabase(DB_CONFIG.name, '1.0', DB_CONFIG.description, -1);
       }
 
       angular.forEach(DB_CONFIG.tables, function(table) {
         var columns = [];
-        
+
         angular.forEach(table.columns, function(column) {
           columns.push(column.name + ' ' + column.type);
         });
@@ -30,7 +30,9 @@ angular.module('starter.services', ['starter.config'])
       var deferred = $q.defer();
 
       self.db.transaction(function(transaction) {
-        transaction.executeSQL(query, bindings, function(transaction, result) {
+        transaction.executeSql(query, bindings, function(transaction, result) {
+          console.log(query);
+          console.log(result);
           deferred.resolve(result);
         }, function(transaction, err) {
           deferred.reject(err);
@@ -38,6 +40,42 @@ angular.module('starter.services', ['starter.config'])
       });
 
       return deferred.promise;
+    };
+
+    self.fetchAll = function(result) {
+      var items = [];
+
+      for (var i = 0; i < result.rows.length; i++) {
+        items.push(result.rows.item(i));
+      }
+
+      return items;
+    };
+
+    return self;
+  })
+
+  .factory('Customer', function(DB) {
+    var self = this;
+
+    self.create = function() {
+      var query = "INSERT INTO Customer ('name', 'address') VALUES ('Pepe', 'chochos')";
+
+      return DB.query(query)
+        .then(function(result) {
+          console.log(result);
+        });
+    };
+
+    self.getAll = function() {
+      return DB.query('SELECT * FROM Customer')
+        .then(function(result) {
+          return DB.fetchAll(result);
+        });
+    };
+
+    self.getById = function(id) {
+
     };
 
     return self;

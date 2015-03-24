@@ -3,7 +3,7 @@ angular.module('starter.config', [])
     name: 'orders.db',
     description: 'Orders App Database',
     tables: [{
-      name: 'customer',
+      name: 'Customer',
       columns: [
         {name: 'id', type: 'integer primary key'},
         {name: 'name', type: 'text'},
