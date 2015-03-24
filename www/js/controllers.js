@@ -66,7 +66,8 @@ angular.module('starter.controllers', [])
   })
 
   .controller('CustomersCtrl', function($scope, Customer) {
-    Customer.getAll().then(function(customers) {
+    Customer.getAll()
+      .then(function(customers) {
       $scope.customers = customers;
     });
   })
@@ -75,19 +76,22 @@ angular.module('starter.controllers', [])
     $scope.customer = getElemFromArray(customers, $stateParams.customerId);
   })
 
+  .controller('CustomerNewCtrl', function($scope, Customer) {
+
+    $scope.customer = {};
+
+    $scope.newCustomer = function(customer) {
+      Customer.create(customer)
+        .then(function(result) {
+          console.log('Created', result);
+        });
+    }
+  })
+
   .controller('ProductsCtrl', function($scope) {
     $scope.products = products;
   })
 
   .controller('ProductCtrl', function($scope, $stateParams) {
     $scope.product = getElemFromArray(products, $stateParams.productId);
-  })
-
-  .controller('CustomerNewCtrl', function($scope) {
-
-    $scope.customer = {};
-
-    $scope.newCustomer = function(customer) {
-      customers.push(customer);
-    }
   });

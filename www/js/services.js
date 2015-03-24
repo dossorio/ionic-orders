@@ -58,13 +58,19 @@ angular.module('starter.services', ['starter.config'])
   .factory('Customer', function(DB) {
     var self = this;
 
-    self.create = function() {
-      var query = "INSERT INTO Customer ('name', 'address') VALUES ('Pepe', 'chochos')";
+    self.create = function(customer) {
+      var columns = [];
+      var values = [];
 
-      return DB.query(query)
-        .then(function(result) {
-          console.log(result);
-        });
+      console.log(customer);
+      for (attr in customer) {
+        columns.push("'" + attr + "'");
+        values.push("'" + customer[attr] + "'");
+      }
+
+      var query = 'INSERT INTO Customer (' + columns.join(',') + ') VALUES (' + values.join(',') + ')';
+
+      return DB.query(query);
     };
 
     self.getAll = function() {
