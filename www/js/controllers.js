@@ -84,6 +84,7 @@ angular.module('starter.controllers', [])
       Customer.create(customer)
         .then(function(result) {
           console.log('Created', result);
+          $scope.customer = {};
         });
     }
   })
