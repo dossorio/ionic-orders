@@ -31,8 +31,6 @@ angular.module('starter.services', ['starter.config'])
 
       self.db.transaction(function(transaction) {
         transaction.executeSql(query, bindings, function(transaction, result) {
-          console.log(query);
-          console.log(result);
           deferred.resolve(result);
         }, function(transaction, err) {
           deferred.reject(err);
@@ -62,7 +60,6 @@ angular.module('starter.services', ['starter.config'])
       var columns = [];
       var values = [];
 
-      console.log(customer);
       for (attr in customer) {
         columns.push("'" + attr + "'");
         values.push("'" + customer[attr] + "'");

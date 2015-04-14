@@ -6,7 +6,7 @@ var db = null;
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers',
+angular.module('starter', ['ionic', 'ui.router', 'starter.controllers',
   'pascalprecht.translate', 'ngCordova', 'starter.services'])
 
   .run(function($ionicPlatform, $cordovaSQLite, DB) {
@@ -48,7 +48,8 @@ angular.module('starter', ['ionic', 'starter.controllers',
             templateUrl: "templates/customers.html",
             controller: 'CustomersCtrl'
           }
-        }
+        },
+        cache: false
       })
 
       .state('app.customer', {

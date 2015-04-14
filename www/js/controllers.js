@@ -76,15 +76,15 @@ angular.module('starter.controllers', [])
     $scope.customer = getElemFromArray(customers, $stateParams.customerId);
   })
 
-  .controller('CustomerNewCtrl', function($scope, Customer) {
+  .controller('CustomerNewCtrl', function($scope, Customer, $state) {
 
     $scope.customer = {};
 
     $scope.newCustomer = function(customer) {
       Customer.create(customer)
         .then(function(result) {
-          console.log('Created', result);
           $scope.customer = {};
+          $state.go('app.customers');
         });
     }
   })
