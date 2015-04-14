@@ -40,6 +40,10 @@ angular.module('starter.services', ['starter.config'])
       return deferred.promise;
     };
 
+    self.fetchOne = function(result){
+      return result.rows.item(0);
+    };
+
     self.fetchAll = function(result) {
       var items = [];
 
@@ -73,12 +77,17 @@ angular.module('starter.services', ['starter.config'])
     self.getAll = function() {
       return DB.query('SELECT * FROM Customer')
         .then(function(result) {
+          console.log('ALL', result);
           return DB.fetchAll(result);
         });
     };
 
     self.getById = function(id) {
-
+      var query = 'SELECT * FROM Customer WHERE id = ' + id;
+      return DB.query(query)
+        .then(function(result){
+          return DB.fetchOne(result);
+        });
     };
 
     return self;

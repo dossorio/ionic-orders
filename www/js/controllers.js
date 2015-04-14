@@ -68,12 +68,15 @@ angular.module('starter.controllers', [])
   .controller('CustomersCtrl', function($scope, Customer) {
     Customer.getAll()
       .then(function(customers) {
-      $scope.customers = customers;
+        $scope.customers = customers;
     });
   })
 
-  .controller('CustomerCtrl', function($scope, $stateParams) {
-    $scope.customer = getElemFromArray(customers, $stateParams.customerId);
+  .controller('CustomerCtrl', function($scope, Customer, $stateParams) {
+    Customer.getById($stateParams.customerId)
+      .then(function(customer){
+        $scope.customer = customer;
+    });
   })
 
   .controller('CustomerNewCtrl', function($scope, Customer, $state) {
