@@ -55,7 +55,7 @@ function getElemFromArray(array, id) {
   }
 }
 
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.models'])
 
   .controller('OrdersCtrl', function($scope) {
     $scope.orders = orders;
