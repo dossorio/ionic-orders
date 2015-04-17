@@ -6,7 +6,7 @@ angular.forEach(DB_CONFIG.tables, function(table){
 
   var modelName = table.name;
 
-  var modelService = function(DB) {
+  modelsModule.factory(modelName, function(DB) {
     var self = this;
 
     self.create = function(modelObj) {
@@ -39,8 +39,6 @@ angular.forEach(DB_CONFIG.tables, function(table){
     };
 
     return self;
-  };
-
-  modelsModule.factory(modelName, modelService);
+  });
 
 });
