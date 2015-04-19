@@ -14,7 +14,7 @@ angular.module('starter.config', [])
         ]
       },
       {
-        name: 'Products',
+        name: 'Product',
         columns: [
           {name: 'id', type: 'integer primary key'},
           {name: 'name', type: 'text'},
@@ -23,12 +23,13 @@ angular.module('starter.config', [])
         ]
       },
       {
-        name: 'Orders',
+        name: 'Order',
         columns: [
           {name: 'id', type: 'integer primary key'},
-          {name: 'name', type: 'text'},
-          {name: 'price', type: 'text'},
-          {name: 'image', type: 'text'}
+          {name: 'customer', type: 'text'},
+          {name: 'amount', type: 'text'},
+          {name: 'status', type: 'text'},
+          {name: 'products', type: 'text'}
         ]
       }
     ]
